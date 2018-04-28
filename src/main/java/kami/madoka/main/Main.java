@@ -4,7 +4,6 @@ import kami.madoka.annnotation.TestAnnotation;
 import kami.madoka.beanfactory.TestFactoryBean;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.support.RootBeanDefinition;
-import org.springframework.stereotype.Controller;
 
 import java.util.Arrays;
 
@@ -23,6 +22,7 @@ public class Main {
         factory.registerBeanDefinition("abc",rootBeanDefinition);
         System.out.println(factory.getBean("abc"));
         System.out.println(factory.getBean("&abc"));
+
         System.out.println(Arrays.toString(factory.getBeanNamesForAnnotation(TestAnnotation.class)));
         System.out.println(factory.findAnnotationOnBean("abc", TestAnnotation.class));
     }

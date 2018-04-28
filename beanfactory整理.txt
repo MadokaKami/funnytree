@@ -1,0 +1,23 @@
+beanfactory
+hierarchicalbeanfactory 父容器获取接口
+listablebeanfactory 批量获取bean接口
+autowaredcapablebeanfactory 自动装配接口
+
+auwowaredcapablebeanfactory implements beanfactory 自动装配接口，整合其他框架代码
+常量表示不同匹配方式
+创建bean，自动装备bean，自动注入，自动注入bean的属性，applyBeanPropertyValues bean下属性，指定新bean，初始化bean，初始化前后添加beanpostprocessor,
+销毁bean，根据工厂中bean的定义解析bean的名字、依赖
+
+configurablebeanfactory implements hierarchicalbeanfactory singletonbeanregistry    继承了单例登记接口     获取父容器接口  是一个配置接口
+设置父容器，设置，读取类加载器，设置、判断bean是否是元数据，设置、返回springel表达式的值，设置、返回转化服务接口，获取访问上下文，从其他容器复制配置信息，
+将propertyeditorregsitry 和 customereditor(propertyeditor)添加到容器中,（xml传入参数的转换），设置、获取类型转换，指定注释等内容添加字符串解析器，获取嵌入解析器，
+用解析器解析字符串，添加spring后置处理器，获取spring后置处理器总和，获取作用域名，根据作用域名获取作用域，获取容器安全访问上下文，为bean起别名，别名解析，
+获取合并的beandefinition,判断是否是工厂bean，创建状态控制，处理bean依赖问题，销毁bean
+
+configurablelistbeanfactory implements autowaredcaptionfactory listablebeanfactory configurablebeanfactory 继承了自动装配接口 批量获取bean接口 配置接口
+主要提供了对bean分析和修改的遍历方法，提供了单例预实例化
+获取定义的bean 忽略依赖类，接口，根据自动注入值创建专用依赖类型，获取beandefinition,获取bean名迭代器，情况元数据缓存，锁定配置信息注册后不再修改，判断bean是否被锁定，
+单例预实例化(非懒加载单例全部实例化)
+
+
+
