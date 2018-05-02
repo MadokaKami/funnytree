@@ -5,7 +5,6 @@ import kami.madoka.beanfactory.TestFactoryBean;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.*;
 import org.springframework.context.annotation.AnnotatedBeanDefinitionReader;
-import org.springframework.context.annotation.ClassPathBeanDefinitionScanner;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 
 import java.util.Arrays;
@@ -29,7 +28,7 @@ public class Main {
         System.out.println(factory.getBean("&abc"));
         System.out.println(Arrays.toString(factory.getBeanNamesForAnnotation(TestAnnotation.class)));
         System.out.println(factory.findAnnotationOnBean("abc", TestAnnotation.class));
-            //----------------------------------------BeanDefinitionRegistry
+        //----------------------------------------BeanDefinitionRegistry
         SimpleBeanDefinitionRegistry registry = new SimpleBeanDefinitionRegistry();
         BeanDefinition beanDefinitionGeneric = new GenericBeanDefinition();
         BeanDefinition beanDefinitionRoot = new RootBeanDefinition();
@@ -45,12 +44,14 @@ public class Main {
         System.out.println(Arrays.toString(registry.getBeanDefinitionNames()));
         //-------annotatedBean
         AnnotatedBeanDefinitionReader annotatedBeanDefinitionReader = new AnnotatedBeanDefinitionReader(registry);
+        //构造方法中AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);添加了对注解的支持
         annotatedBeanDefinitionReader.register(TestAnnotation.class);
         System.out.println(registry.getBeanDefinitionCount());
         ClassPathScanningCandidateComponentProvider privider = new ClassPathScanningCandidateComponentProvider(true);
         Set<BeanDefinition> definitionSet = privider.findCandidateComponents("kami.madoka.entity");
         System.out.println(definitionSet.size());
         //ClassPathBeanDefinitionScanner
+        //ListableBeanFactory HierarchicalBeanFactory AutowireCapableBeanFactory ConfigurableBeanFactory ConfigurableListableBeanFactory AbstractBeanFactory
+        //AbstractAutowireCapableBeanFactory  DefaultListableBeanFactory
     }
-
 }
