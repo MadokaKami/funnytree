@@ -38,8 +38,8 @@ public class Main {
         System.out.println(registry.getBeanDefinitionCount());
         System.out.println(Arrays.toString(registry.getBeanDefinitionNames()));
         //-------------------------------------propertiesBeandefinitionReader
-        PropertiesBeanDefinitionReader porpertiesReader = new PropertiesBeanDefinitionReader(registry);
-        porpertiesReader.loadBeanDefinitions("my-ini.properties");
+        PropertiesBeanDefinitionReader propertiesReader = new PropertiesBeanDefinitionReader(registry);
+        propertiesReader.loadBeanDefinitions("my-ini.properties");
         System.out.println(registry.getBeanDefinitionCount());
         System.out.println(Arrays.toString(registry.getBeanDefinitionNames()));
         //-------annotatedBean
@@ -47,8 +47,8 @@ public class Main {
         //构造方法中AnnotationConfigUtils.registerAnnotationConfigProcessors(this.registry);添加了对注解的支持
         annotatedBeanDefinitionReader.register(TestAnnotation.class);
         System.out.println(registry.getBeanDefinitionCount());
-        ClassPathScanningCandidateComponentProvider privider = new ClassPathScanningCandidateComponentProvider(true);
-        Set<BeanDefinition> definitionSet = privider.findCandidateComponents("kami.madoka.entity");
+        ClassPathScanningCandidateComponentProvider provider = new ClassPathScanningCandidateComponentProvider(true);
+        Set<BeanDefinition> definitionSet = provider.findCandidateComponents("kami.madoka.entity");
         System.out.println(definitionSet.size());
         //ClassPathBeanDefinitionScanner
         //ListableBeanFactory HierarchicalBeanFactory AutowireCapableBeanFactory ConfigurableBeanFactory ConfigurableListableBeanFactory AbstractBeanFactory
