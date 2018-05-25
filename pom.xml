@@ -12,6 +12,13 @@
         <spring-version>4.3.16.RELEASE</spring-version>
     </properties>
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.28</version>
+        </dependency>
+        <!-- spring framework start -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
@@ -37,5 +44,13 @@
             <artifactId>spring-expression</artifactId>
             <version>${spring-version}</version>
         </dependency>
+        <!-- 单元测试 -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- spring framework end -->
     </dependencies>
 </project>
